@@ -1,0 +1,426 @@
+/* STREAMING_CHUNK:Defining CSS custom properties and Material 3 design tokens... /
+:root {
+/ Material 3 Light Color System */
+--md-sys-color-primary: #2563eb;
+--md-sys-color-on-primary: #ffffff;
+--md-sys-color-primary-container: #dbeafe;
+--md-sys-color-on-primary-container: #1e40af;
+--md-sys-color-secondary: #4f46e5;
+--md-sys-color-surface: #ffffff;
+--md-sys-color-on-surface: #0f172a;
+--md-sys-color-surface-variant: #f8fafc;
+--md-sys-color-on-surface-variant: #475569;
+--md-sys-color-outline: #e2e8f0;
+--md-sys-color-outline-variant: #cbd5e1;
+--md-sys-color-background: #f8fafc;
+--md-sys-color-error: #ef4444;
+--md-sys-color-success: #10b981;
+
+/* Glassmorphism Tokens - Light */
+--glass-bg: rgba(255, 255, 255, 0.75);
+--glass-border: rgba(226, 232, 240, 0.8);
+--glass-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.07);
+--glass-blur: blur(16px);
+
+/* Material 3 Elevation Shadows */
+--md-elevation-1: 0px 1px 3px 1px rgba(0, 0, 0, 0.05), 0px 1px 2px 0px rgba(0, 0, 0, 0.03);
+--md-elevation-2: 0px 2px 6px 2px rgba(0, 0, 0, 0.06), 0px 1px 2px 0px rgba(0, 0, 0, 0.04);
+--md-elevation-3: 0px 4px 12px 3px rgba(0, 0, 0, 0.08), 0px 1px 3px 0px rgba(0, 0, 0, 0.05);
+--md-elevation-4: 0px 8px 24px 4px rgba(0, 0, 0, 0.10), 0px 2px 4px 0px rgba(0, 0, 0, 0.06);
+
+/* Animation Timings */
+--motion-easing-standard: cubic-bezier(0.2, 0, 0, 1);
+--motion-easing-emphasized: cubic-bezier(0.2, 0, 0, 1.25);
+--motion-duration-short: 150ms;
+--motion-duration-medium: 300ms;
+--motion-duration-long: 500ms;
+}
+
+/* STREAMING_CHUNK:Applying dark mode theme tokens... /
+.dark {
+/ Material 3 Dark Color System */
+--md-sys-color-primary: #3b82f6;
+--md-sys-color-on-primary: #ffffff;
+--md-sys-color-primary-container: #1e3a8a;
+--md-sys-color-on-primary-container: #bfdbfe;
+--md-sys-color-secondary: #6366f1;
+--md-sys-color-surface: #0f172a;
+--md-sys-color-on-surface: #f8fafc;
+--md-sys-color-surface-variant: #1e293b;
+--md-sys-color-on-surface-variant: #94a3b8;
+--md-sys-color-outline: #334155;
+--md-sys-color-outline-variant: #475569;
+--md-sys-color-background: #020617;
+
+/* Glassmorphism Tokens - Dark */
+--glass-bg: rgba(15, 23, 42, 0.75);
+--glass-border: rgba(51, 65, 85, 0.6);
+--glass-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.37);
+
+/* Material 3 Dark Elevation Shadows */
+--md-elevation-1: 0px 1px 3px 1px rgba(0, 0, 0, 0.3), 0px 1px 2px 0px rgba(0, 0, 0, 0.2);
+--md-elevation-2: 0px 2px 6px 2px rgba(0, 0, 0, 0.4), 0px 1px 2px 0px rgba(0, 0, 0, 0.3);
+--md-elevation-3: 0px 4px 12px 3px rgba(0, 0, 0, 0.5), 0px 1px 3px 0px rgba(0, 0, 0, 0.4);
+--md-elevation-4: 0px 8px 24px 4px rgba(0, 0, 0, 0.6), 0px 2px 4px 0px rgba(0, 0, 0, 0.5);
+}
+
+/* STREAMING_CHUNK:Configuring custom scrollbars and base typography rules... */
+::-webkit-scrollbar {
+width: 8px;
+height: 8px;
+}
+
+::-webkit-scrollbar-track {
+background: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+background-color: var(--md-sys-color-outline-variant);
+border-radius: 9999px;
+border: 2px solid transparent;
+background-clip: content-box;
+}
+
+::-webkit-scrollbar-thumb:hover {
+background-color: var(--md-sys-color-on-surface-variant);
+}
+
+/* Focus Ring Accessibility */
+*:focus-visible {
+outline: 2px solid var(--md-sys-color-primary);
+outline-offset: 2px;
+}
+
+/* STREAMING_CHUNK:Creating glassmorphism component classes... */
+.glass-panel {
+background: var(--glass-bg);
+backdrop-filter: var(--glass-blur);
+-webkit-backdrop-filter: var(--glass-blur);
+border: 1px solid var(--glass-border);
+box-shadow: var(--glass-shadow);
+}
+
+.glass-card {
+background: var(--glass-bg);
+backdrop-filter: var(--glass-blur);
+-webkit-backdrop-filter: var(--glass-blur);
+border: 1px solid var(--glass-border);
+transition: all var(--motion-duration-medium) var(--motion-easing-standard);
+}
+
+.glass-card:hover {
+border-color: var(--md-sys-color-primary);
+box-shadow: var(--md-elevation-3);
+transform: translateY(-3px);
+}
+
+/* STREAMING_CHUNK:Styling tool cards and hover interactions... */
+.tool-card {
+position: relative;
+overflow: hidden;
+border-radius: 1.25rem;
+transition: transform var(--motion-duration-medium) var(--motion-easing-emphasized),
+box-shadow var(--motion-duration-medium) var(--motion-easing-standard),
+border-color var(--motion-duration-short) linear;
+box-shadow: var(--md-elevation-1);
+}
+
+.tool-card:hover {
+transform: translateY(-4px) scale(1.01);
+box-shadow: var(--md-elevation-3);
+}
+
+.tool-card .tool-icon {
+transition: transform var(--motion-duration-medium) var(--motion-easing-emphasized);
+}
+
+.tool-card:hover .tool-icon {
+transform: scale(1.15) rotate(3deg);
+}
+
+/* STREAMING_CHUNK:Implementing material ripple effect styling... */
+.ripple-container {
+position: relative;
+overflow: hidden;
+transform: translateZ(0);
+}
+
+.ripple-effect {
+position: absolute;
+border-radius: 50%;
+background-color: rgba(255, 255, 255, 0.35);
+transform: scale(0);
+animation: ripple-animation 600ms linear;
+pointer-events: none;
+}
+
+.dark .ripple-effect {
+background-color: rgba(255, 255, 255, 0.2);
+}
+
+@keyframes ripple-animation {
+to {
+transform: scale(4);
+opacity: 0;
+}
+}
+
+/* STREAMING_CHUNK:Styling Material 3 buttons and action controls... */
+.btn-m3 {
+position: relative;
+display: inline-flex;
+align-items: center;
+justify-content: center;
+gap: 0.5rem;
+font-weight: 600;
+border-radius: 0.75rem;
+padding: 0.625rem 1.25rem;
+transition: all var(--motion-duration-short) var(--motion-easing-standard);
+cursor: pointer;
+user-select: none;
+}
+
+.btn-m3-filled {
+background-color: var(--md-sys-color-primary);
+color: var(--md-sys-color-on-primary);
+box-shadow: var(--md-elevation-1);
+}
+
+.btn-m3-filled:hover {
+box-shadow: var(--md-elevation-2);
+filter: brightness(1.08);
+transform: translateY(-1px);
+}
+
+.btn-m3-filled:active {
+box-shadow: var(--md-elevation-1);
+transform: translateY(0);
+}
+
+.btn-m3-tonal {
+background-color: var(--md-sys-color-primary-container);
+color: var(--md-sys-color-on-primary-container);
+}
+
+.btn-m3-tonal:hover {
+filter: brightness(0.95);
+}
+
+.dark .btn-m3-tonal:hover {
+filter: brightness(1.1);
+}
+
+.btn-m3-outlined {
+border: 1px solid var(--md-sys-color-outline);
+color: var(--md-sys-color-primary);
+background: transparent;
+}
+
+.btn-m3-outlined:hover {
+background-color: var(--md-sys-color-primary-container);
+border-color: var(--md-sys-color-primary);
+}
+
+/* STREAMING_CHUNK:Styling file upload zone and animated dashed borders... */
+.upload-dropzone {
+position: relative;
+background-image: url("data:image/svg+xml,%3csvg width='100%25' height='100%25' xmlns='http://www.w3.org/2000/svg'%3e%3crect width='100%25' height='100%25' fill='none' rx='16' ry='16' stroke='%233B82FBRN' stroke-width='3' stroke-dasharray='8%2c 8' stroke-dashoffset='0' stroke-linecap='square'/%3e%3c/svg%3e");
+border-radius: 1rem;
+transition: all var(--motion-duration-medium) var(--motion-easing-standard);
+}
+
+.upload-dropzone.drag-active {
+background-color: var(--md-sys-color-primary-container);
+transform: scale(1.01);
+animation: pulse-border 1.5s infinite;
+}
+
+@keyframes pulse-border {
+0% {
+box-shadow: 0 0 0 0 rgba(59, 130, 246, 0.4);
+}
+70% {
+box-shadow: 0 0 0 12px rgba(59, 130, 246, 0);
+}
+100% {
+box-shadow: 0 0 0 0 rgba(59, 130, 246, 0);
+}
+}
+
+/* STREAMING_CHUNK:Defining keyframe animations for spinners and loading progress... */
+@keyframes spin-custom {
+from {
+transform: rotate(0deg);
+}
+to {
+transform: rotate(360deg);
+}
+}
+
+.loading-spinner {
+animation: spin-custom 1s cubic-bezier(0.4, 0, 0.2, 1) infinite;
+}
+
+/* Shimmer Progress Bar Animation */
+.progress-bar-animated {
+background: linear-gradient(
+90deg,
+#2563eb 0%,
+#60a5fa 50%,
+#2563eb 100%
+);
+background-size: 200% 100%;
+animation: shimmer 1.8s infinite linear;
+}
+
+@keyframes shimmer {
+0% {
+background-position: 200% 0;
+}
+100% {
+background-position: -200% 0;
+}
+}
+
+/* STREAMING_CHUNK:Styling PDF interactive previewer canvas and page thumbnails... */
+.pdf-preview-canvas {
+box-shadow: var(--md-elevation-4);
+transition: transform var(--motion-duration-medium) var(--motion-easing-emphasized);
+}
+
+.pdf-thumbnail {
+position: relative;
+transition: all var(--motion-duration-short) var(--motion-easing-standard);
+}
+
+.pdf-thumbnail:hover {
+transform: scale(1.04);
+}
+
+.pdf-thumbnail.active-thumbnail {
+border-color: var(--md-sys-color-primary);
+box-shadow: 0 0 0 2px var(--md-sys-color-primary);
+}
+
+/* STREAMING_CHUNK:Styling success popup modal and keyframe entry animations... */
+.modal-backdrop {
+background: rgba(15, 23, 42, 0.65);
+backdrop-filter: blur(8px);
+-webkit-backdrop-filter: blur(8px);
+}
+
+.modal-content-pop {
+animation: modalPopIn var(--motion-duration-medium) var(--motion-easing-emphasized) forwards;
+}
+
+@keyframes modalPopIn {
+0% {
+opacity: 0;
+transform: scale(0.9) translateY(20px);
+}
+100% {
+opacity: 1;
+transform: scale(1) translateY(0);
+}
+}
+
+.success-icon-bounce {
+animation: successBounce 750ms var(--motion-easing-emphasized) forwards;
+}
+
+@keyframes successBounce {
+0% {
+transform: scale(0);
+}
+50% {
+transform: scale(1.25);
+}
+75% {
+transform: scale(0.9);
+}
+100% {
+transform: scale(1);
+}
+}
+
+/* STREAMING_CHUNK:Styling toast notifications and floating alert system... */
+.toast-container {
+position: fixed;
+bottom: 1.5rem;
+right: 1.5rem;
+z-index: 100;
+display: flex;
+flex-direction: column;
+gap: 0.75rem;
+max-width: 24rem;
+width: calc(100% - 3rem);
+pointer-events: none;
+}
+
+.toast {
+pointer-events: auto;
+display: flex;
+align-items: center;
+gap: 0.75rem;
+padding: 1rem 1.25rem;
+border-radius: 1rem;
+background: var(--glass-bg);
+backdrop-filter: var(--glass-blur);
+-webkit-backdrop-filter: var(--glass-blur);
+border: 1px solid var(--glass-border);
+box-shadow: var(--md-elevation-3);
+animation: toastSlideIn var(--motion-duration-medium) var(--motion-easing-emphasized) forwards;
+}
+
+.toast.toast-hiding {
+animation: toastSlideOut var(--motion-duration-short) var(--motion-easing-standard) forwards;
+}
+
+.toast-success {
+border-left: 4px solid var(--md-sys-color-success);
+}
+
+.toast-error {
+border-left: 4px solid var(--md-sys-color-error);
+}
+
+.toast-info {
+border-left: 4px solid var(--md-sys-color-primary);
+}
+
+@keyframes toastSlideIn {
+from {
+opacity: 0;
+transform: translateY(100%) scale(0.9);
+}
+to {
+opacity: 1;
+transform: translateY(0) scale(1);
+}
+}
+
+@keyframes toastSlideOut {
+from {
+opacity: 1;
+transform: translateY(0) scale(1);
+}
+to {
+opacity: 0;
+transform: translateY(20px) scale(0.9);
+}
+}
+
+/* STREAMING_CHUNK:Adding responsive layout refinements and dark mode overrides... */
+@media (max-width: 640px) {
+.toast-container {
+bottom: 1rem;
+right: 1rem;
+left: 1rem;
+max-width: none;
+width: auto;
+}
+
+.tool-card {
+border-radius: 1rem;
+}
+}
